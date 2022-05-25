@@ -2,7 +2,7 @@ import { TitleList } from "./"
 
 export const AboutMe = () => {
   return (
-    <section className="px-8 mt-10">
+    <section className="px-8">
       <TitleList title="Sobre Mi" />
       <p className="mt-10 font-base text-custom-black">
         Bachiller en Ingeniería de Sistemas, con más de 3 años de experiencia,

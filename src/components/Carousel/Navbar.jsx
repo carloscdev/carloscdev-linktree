@@ -1,13 +1,12 @@
-import { useState, useId } from 'react'
-import { ItemNav } from '.'
+import { useId } from "react"
+import { ItemNav } from "."
+import { useLinktreeContext } from "../../context"
+import { Loader } from "../Base"
 
-export const Navbar = ({ categories }) => {
+export const Navbar = () => {
+  const { categories, loadingCategories, currentCategory, getLinksByCategory } = useLinktreeContext()
   const idItem = useId()
-  const [currentCategory, setCurrentCategory] = useState('all')
 
-  const handleCurrentCategory = (category) => {
-    setCurrentCategory(category)
-  }
   return (
     <nav className="relative mt-[-50px] navbar">
       <ul
@@ -16,15 +15,44 @@ export const Navbar = ({ categories }) => {
           relative z-10 snap-none navbar-carousel
         "
       >
-        {categories.map((category) => (
-          <ItemNav
-            category={category}
-            currentCategory={currentCategory}
-            handleCurrentCategory={handleCurrentCategory}
-            key={`${idItem}-${category?.name}`}
-          />
-        ))}
+        {loadingCategories ? (
+          <LoaderNavbar />
+        ) : (
+          categories.map((category) => (
+            <ItemNav
+              category={category}
+              currentCategory={currentCategory}
+              handleCurrentCategory={() => getLinksByCategory(category?.slug)}
+              key={`${idItem}-${category?.name}`}
+            />
+          ))
+        )}
       </ul>
     </nav>
+  )
+}
+
+function LoaderNavbar() {
+  return (
+    <>
+      <li
+        className={
+          "inline-block mr-3 bg-white shadow-custom rounded-lg px-4 py-3 text-primary cursor-pointer relative "
+        }
+      >
+        <button className="flex items-center text-base gap-3 font-semibold relative h-[40px]">
+          <Loader width="w-[70px]" height="h-[24px]" />
+        </button>
+      </li>
+      <li
+        className={
+          "inline-block mr-3 bg-white shadow-custom rounded-lg px-4 py-3 text-primary cursor-pointer relative "
+        }
+      >
+        <button className="flex items-center text-base gap-3 font-semibold relative h-[40px]">
+          <Loader width="w-[70px]" height="h-[24px]" />
+        </button>
+      </li>
+    </>
   )
 }

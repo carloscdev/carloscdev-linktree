@@ -1,8 +1,11 @@
 import { Home } from './pages'
+import BeerProvider from "./context";
 
 function App() {
   return (
-    <Home />
+    <BeerProvider>
+      <Home />
+    </BeerProvider>
   );
 }
 

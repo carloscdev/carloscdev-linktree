@@ -1,11 +1,17 @@
 
 import { db } from "../firebase.js"
-import { collection, onSnapshot } from "firebase/firestore"
+import { collection, getDocs } from "firebase/firestore"
 
-export const getAllLinks = () => {
-  let response = []
-  onSnapshot(collection(db, "links"), (snapshot) => {
-    response.push(...snapshot.docs.map((doc) => doc.data()).sort((a, b) => a.order - b.order))
-  })
-  return response
+export const getAllLinksApi = async () => {
+  try {
+    const linksRef = collection(db, 'links')
+    const linksSnapshot = await getDocs(linksRef)
+    const links = linksSnapshot.docs.map((item) => ({
+      ...item.data()
+    }))
+    const response = links.sort((a, b) => a.order - b.order)
+    return response
+  } catch (error) {
+    throw error
+  }
 }

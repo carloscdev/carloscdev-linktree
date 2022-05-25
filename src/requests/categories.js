@@ -1,11 +1,17 @@
 
 import { db } from "../firebase.js"
-import { collection, onSnapshot } from "firebase/firestore"
+import { collection, getDocs } from "firebase/firestore"
 
-export const getAllCategories = () => {
-  let response = []
-  onSnapshot(collection(db, "categories"), (snapshot) => {
-    response.push(...snapshot.docs.map((doc) => doc.data()).sort((a, b) => a.order - b.order))
-  })
-  return response
+export const getAllCategoriesApi = async () => {
+  try {
+    const categoriesRef = collection(db, 'categories')
+    const categoriesSnapshot = await getDocs(categoriesRef)
+    const categories = categoriesSnapshot.docs.map((item) => ({
+      ...item.data()
+    }))
+    const response = categories.sort((a, b) => a.order - b.order)
+    return response
+  } catch (error) {
+    throw error
+  }
 }

@@ -1,17 +1,37 @@
 import { useId } from "react"
-import { TitleList } from "./"
-import { ItemList } from './'
+import { TitleList, ItemList } from "./"
+import { Loader } from "../Base"
+import { useLinktreeContext } from "../../context"
 
-export const ContentList = ({ itemsList }) => {
+export const ContentList = () => {
+  const { links, loadingLinks, currentCategory, categories } = useLinktreeContext()
+  const titleCategory = categories.find(category => {
+    return category.slug === currentCategory
+  })
   const idItem = useId()
   return (
     <main className="px-8">
-      <TitleList title="Todos" />
-      <ul className="mt-10">
-        {itemsList.map((item) => (
-          <ItemList key={`${idItem}-${item?.name}`} item={item} />
-        ))}
+      <TitleList title={titleCategory?.name || 'Todos'} />
+      <ul className="mt-10 min-h-12">
+        {loadingLinks ? (
+          <LoaderContentList />
+        ) : (
+          links.map((item) => (
+            <ItemList key={`${idItem}-${item?.name}`} item={item} />
+          ))
+        )}
       </ul>
     </main>
+  )
+}
+
+function LoaderContentList() {
+  return (
+    <section className="flex flex-col gap-5">
+      <Loader width="w-9/12" />
+      <Loader />
+      <Loader />
+      <Loader />
+    </section>
   )
 }
