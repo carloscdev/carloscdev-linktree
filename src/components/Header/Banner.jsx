@@ -3,7 +3,7 @@ import { BlueCircle, OrangeCircle } from '../Icons'
 
 export const Banner = ({ user }) => {
   return (
-    <header className="h-banner bg-primary text-white flex items-center justify-center relative overflow-hidden">
+    <header className="h-banner bg-custom-black text-white flex items-center justify-center relative overflow-hidden">
       <BlueCircle />
       <OrangeCircle />
       <div className="text-center mb-8 relative z-10">

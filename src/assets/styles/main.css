@@ -2,19 +2,6 @@
 @import url('./tailwind.css');
 
 
-/* Animations */
-@keyframes circles {
-  from {
-      width: 0;
-      height: 0;
-  }
-
-  to {
-      height: 250px;
-      width: 400px;
-  }
-}
-
 .navbar::before {
   content: "";
   border-radius: 40px 40px 0 0;
@@ -30,4 +17,26 @@
 }
 .navbar-carousel {
   scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes circles {
+  from {
+      width: 0;
+      height: 0;
+  }
+
+  to {
+      height: 250px;
+      width: 400px;
+  }
+}
+
+@keyframes bar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 90%;
+  }
 }

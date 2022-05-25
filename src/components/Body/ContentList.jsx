@@ -14,7 +14,7 @@ export const ContentList = ({ itemsList }) => {
               href={item?.url}
               target="_blank"
               rel="noreferrer noopener"
-              className="flex items-center gap-5 text-lg text-gray-700 font-semibold"
+              className="flex items-center gap-5 text-lg text-custom-black"
             >
               <span className="text-primary">
                 <BaseIcon icon={item?.icon} />
