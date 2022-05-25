@@ -41,7 +41,7 @@ function LoaderNavbar() {
         }
       >
         <button className="flex items-center text-base gap-3 font-semibold relative h-[40px]">
-          <Loader width="w-[70px]" height="h-[24px]" />
+          <Loader width="w-[90px]" height="h-[24px]" />
         </button>
       </li>
       <li
@@ -50,7 +50,16 @@ function LoaderNavbar() {
         }
       >
         <button className="flex items-center text-base gap-3 font-semibold relative h-[40px]">
-          <Loader width="w-[70px]" height="h-[24px]" />
+          <Loader width="w-[90px]" height="h-[24px]" />
+        </button>
+      </li>
+      <li
+        className={
+          "inline-block mr-3 bg-white shadow-custom rounded-lg px-4 py-3 text-primary cursor-pointer relative "
+        }
+      >
+        <button className="flex items-center text-base gap-3 font-semibold relative h-[40px]">
+          <Loader width="w-[90px]" height="h-[24px]" />
         </button>
       </li>
     </>

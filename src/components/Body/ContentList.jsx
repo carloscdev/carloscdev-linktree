@@ -12,7 +12,7 @@ export const ContentList = () => {
   return (
     <main className="px-8">
       <TitleList title={titleCategory?.name || 'Todos'} />
-      <ul className="mt-10 min-h-12">
+      <ul className="min-h-12">
         {loadingLinks ? (
           <LoaderContentList />
         ) : (

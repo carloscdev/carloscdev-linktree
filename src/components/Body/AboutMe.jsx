@@ -1,16 +1,29 @@
 import { TitleList } from "./"
+import { Loader } from "../Base"
+import { useLinktreeContext } from "../../context"
 
 export const AboutMe = () => {
+  const { profile, loadingProfile } = useLinktreeContext()
   return (
     <section className="px-8">
       <TitleList title="Sobre Mi" />
-      <p className="mt-10 font-base text-custom-black">
-        Bachiller en Ingeniería de Sistemas, con más de 3 años de experiencia,
-        especializado en el Desarrollo Front-end. Me considero una persona
-        autodidacta y proactiva que siempre está en constante aprendizaje.
-        Durante estos últimos meses he dedicado tiempo a crear tutoriales y
-        cursos en plataformas digitales como Youtube y Udemy
-      </p>
+      {loadingProfile ? (
+        <LoaderAboutMe />
+      ) : (
+        <p className="font-base text-custom-black">
+          {profile[0]?.description}
+        </p>
+      )}
     </section>
+  )
+}
+
+function LoaderAboutMe() {
+  return (
+    <div className="flex flex-col gap-1">
+      <Loader width="w-9/12" />
+      <Loader />
+      <Loader />
+    </div>
   )
 }

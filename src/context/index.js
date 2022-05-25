@@ -1,20 +1,38 @@
 import { createContext, useContext, useState } from 'react'
 import { getAllCategoriesApi } from '../requests/categories'
 import { getAllLinksApi } from '../requests/links'
+import { getProfileApi } from '../requests/profile'
 
 const Linktree = createContext({});
 
 export const useLinktreeContext = () => useContext(Linktree);
 
 const LinktreeProvider = ({ children }) => {
+  const [profile, setProfile] = useState({})
+  const [loadingProfile, setLoadingProfile] = useState(false)
+  const [errorProfile, setErrorProfile] = useState(null)
+
   const [currentCategory, setCurrentCategory] = useState(null)
   const [categories, setCategories] = useState([])
+  const [loadingCategories, setLoadingCategories] = useState(false)
+  const [errorCategories, setErrorCategories] = useState(null)
+
   const [linksRaw, setLinksRaw] = useState([])
   const [links, setLinks] = useState([])
-  const [loadingCategories, setLoadingCategories] = useState(false)
   const [loadingLinks, setLoadingLinks] = useState(false)
-  const [errorCategories, setErrorCategories] = useState(null)
   const [errorLinks, setErrorLinks] = useState(null)
+
+  const getProfile = async () => {
+    try {
+      setLoadingProfile(true)
+      const response = await getProfileApi()
+      setProfile(response)
+    } catch (error) {
+      setErrorProfile(error)
+    } finally {
+      setLoadingProfile(false)
+    }
+  }
 
   const getAllCategories = async () => {
     try {
@@ -57,6 +75,10 @@ const LinktreeProvider = ({ children }) => {
   return (
     <Linktree.Provider
       value={{
+        profile,
+        getProfile,
+        loadingProfile,
+        errorProfile,
         currentCategory,
         getLinksByCategory,
         categories,

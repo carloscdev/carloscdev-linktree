@@ -1,7 +1,13 @@
-
-export const Loader = ({width = 'w-full', height = 'h-5'}) => {
+export const Loader = ({
+  width = "w-full",
+  height = "h-5",
+  rounded = "rounded",
+  bgColor = 'bg-primary',
+  bgOpacity = 'bg-opacity-10'
+}) => {
   return (
-    <div className={`${width} ${height} rounded bg-primary bg-opacity-10 animate-pulse`}>
-    </div>
+    <div
+      className={`${width} ${height} ${rounded} ${bgColor} ${bgOpacity} animate-pulse`}
+    ></div>
   )
 }

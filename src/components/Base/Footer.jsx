@@ -1,8 +1,8 @@
 
 export const Footer = () => {
   return (
-    <footer className="text-center text-sm font-light">
-      <p className="opacity-50">Made with React Js - Firebase</p>
+    <footer className="text-center text-xs">
+      <p className="opacity-50">Made with React Js - Firebase - Tailwind CSS</p>
       <p>
         <a
           href="https://carlosc.dev"
