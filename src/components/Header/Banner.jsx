@@ -10,7 +10,7 @@ export const Banner = () => {
       className="
         h-banner bg-custom-black text-white flex items-center justify-center
         relative overflow-hidden bg-banner bg-center bg-no-repeat bg-cover bg-fixed
-        after:absolute after:content-[''] after:inset-0 after:bg-custom-black after:bg-opacity-20
+        after:absolute after:content-[''] after:inset-0 after:bg-custom-black after:bg-opacity-5
       "
     >
       {/* <BlueCircle />

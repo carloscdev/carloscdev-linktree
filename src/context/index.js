@@ -61,7 +61,7 @@ const LinktreeProvider = ({ children }) => {
   }
 
   const getLinksByCategory = (category) => {
-    setLinks([])
+    if (currentCategory !== category ) setLinks([])
     setCurrentCategory(category)
     setTimeout(() => {
       if (category === 'all') setLinks([...linksRaw])
