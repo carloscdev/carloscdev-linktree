@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import { Banner, Navbar, ContentList, AboutMe } from "../components"
 
-import { db } from "../firebase.js"
-import { collection, onSnapshot } from "firebase/firestore"
+import { getAllCategories } from '../requests/categories'
+import { getAllLinks } from '../requests/links'
 
 export const Home = () => {
   const [categories, setCategories] = useState([])
+  const [links, setLinks] = useState([])
   const user = {
     name: "Carlos Córdova",
     position: "Front-end Dev.",
@@ -36,46 +37,52 @@ export const Home = () => {
   // ]
 
   useEffect(() => {
-    onSnapshot(collection(db, "categories"), (snapshot) => {
-      setCategories(
-        snapshot.docs.map((doc) => doc.data()).sort((a, b) => a.order - b.order)
-      )
-    })
+    setCategories(getAllCategories())
   }, [])
 
-  const itemsList = [
-    {
-      name: "Linkedin | @carloscdev",
-      category: "social",
-      icon: "fa-brands fa-linkedin",
-      url: "https://www.linkedin.com/in/carloscdev/",
-    },
-    {
-      name: "Facebook | @carloscdev",
-      category: "social",
-      icon: "fa-brands fa-facebook",
-      url: "https://www.facebook.com/carloscdev/",
-    },
-    {
-      name: "Instagram | @carlosc.dev",
-      category: "social",
-      icon: "fa-brands fa-instagram",
-      url: "https://www.instagram.com/carlosc.dev/",
-    },
-    {
-      name: "Twitter | @carloscdev",
-      category: "social",
-      icon: "fa-brands fa-twitter",
-      url: "https://twitter.com/carloscdev",
-    },
-  ]
+  useEffect(() => {
+    setLinks(getAllLinks())
+  }, [])
+
+  // const itemsList = [
+  //   {
+  //     name: "Github | @carloscdev",
+  //     category: "social",
+  //     icon: "fa-brands fa-github",
+  //     url: "https://www.linkedin.com/in/carloscdev/",
+  //   },
+  //   {
+  //     name: "Linkedin | @carloscdev",
+  //     category: "social",
+  //     icon: "fa-brands fa-linkedin",
+  //     url: "https://www.linkedin.com/in/carloscdev/",
+  //   },
+  //   {
+  //     name: "Facebook | @carloscdev",
+  //     category: "social",
+  //     icon: "fa-brands fa-facebook",
+  //     url: "https://www.facebook.com/carloscdev/",
+  //   },
+  //   {
+  //     name: "Instagram | @carlosc.dev",
+  //     category: "social",
+  //     icon: "fa-brands fa-instagram",
+  //     url: "https://www.instagram.com/carlosc.dev/",
+  //   },
+  //   {
+  //     name: "Twitter | @carloscdev",
+  //     category: "social",
+  //     icon: "fa-brands fa-twitter",
+  //     url: "https://twitter.com/carloscdev",
+  //   },
+  // ]
 
   return (
     <div className="font-montserrat">
       <Banner user={user} />
-      <div className="max-w-[680px] mx-auto">
+      <div className="max-w-[680px] mx-auto mb-10">
         <Navbar categories={categories} />
-        <ContentList itemsList={itemsList} />
+        <ContentList itemsList={links} />
         <AboutMe />
       </div>
     </div>

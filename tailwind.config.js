@@ -23,7 +23,10 @@ module.exports = {
       },
       boxShadow: {
         "custom": "0 10px 20px rgba(25,31,61,.1)",
-      }
+      },
+      backgroundImage: {
+        "banner": "url('https://images.unsplash.com/photo-1604964432806-254d07c11f32?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZGV2ZWxvcGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500')"
+      },
     },
   },
   variants: {
