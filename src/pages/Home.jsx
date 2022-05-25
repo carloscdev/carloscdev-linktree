@@ -24,16 +24,16 @@ export const Home = () => {
   }, [])
 
   return (
-    <div className="font-montserrat">
+    <div className="font-montserrat pb-10">
       <Banner />
       <div className="max-w-[680px] mx-auto mb-10 shadow-custom rounded-b-[40px] pb-10">
         <Navbar />
         <div className="grid gap-16">
           <ContentList />
           <AboutMe />
-          <Footer />
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
