@@ -2,7 +2,7 @@ import { BaseIcon } from '../Icons'
 
 export const ItemList = ({ item }) => {
   return (
-    <li className="mb-5 last:mb-0 animate-fadeUp">
+    <li className="mb-5 last:mb-0 animate-fadeUp translate-y-4 item-delay opacity-0">
       <a
         href={item?.url}
         target="_blank"

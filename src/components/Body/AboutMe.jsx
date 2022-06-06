@@ -20,7 +20,7 @@ export const AboutMe = () => {
 
 function LoaderAboutMe() {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-5">
       <Loader width="w-9/12" />
       <Loader />
       <Loader />

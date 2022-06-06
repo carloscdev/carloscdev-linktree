@@ -20,7 +20,7 @@ module.exports = {
       animation: {
         'circle': 'circles 1.3s ease forwards',
         'bar': 'bar 0.5s ease forwards',
-        'fadeUp': 'fadeUp 0.5s ease forwards',
+        'fadeUp': 'fadeUp 0.3s ease forwards',
       },
       boxShadow: {
         "custom": "0 10px 20px rgba(25,31,61,.1)",
