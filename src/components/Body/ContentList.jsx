@@ -9,6 +9,7 @@ export const ContentList = () => {
     return category.slug === currentCategory
   })
   const idItem = useId()
+
   return (
     <main className="px-8">
       <TitleList title={titleCategory?.name || 'Todos'} />
@@ -16,8 +17,8 @@ export const ContentList = () => {
         {loadingLinks ? (
           <LoaderContentList />
         ) : (
-          links.map((item) => (
-            <ItemList key={`${idItem}-${item?.name}`} item={item} />
+          links.map((item, index) => (
+            <ItemList key={`${idItem}-${item?.name}`} item={item} index={index + 1} />
           ))
         )}
       </ul>
