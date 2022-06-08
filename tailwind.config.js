@@ -8,7 +8,7 @@ module.exports = {
     },
     extend: {
       height: {
-        "banner": "300px"
+        "banner": "350px"
       },
       colors: {
         "primary": "#0096E0",
@@ -26,7 +26,7 @@ module.exports = {
         "custom": "0 10px 20px rgba(25,31,61,.1)",
       },
       backgroundImage: {
-        "banner": "url('https://i.postimg.cc/x8WbGXCN/background.jpg')"
+        "banner": "url('https://i.postimg.cc/nhZNmYdV/bg-mountains.jpg')"
       }
     },
   },

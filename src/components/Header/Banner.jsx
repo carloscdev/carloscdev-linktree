@@ -9,8 +9,8 @@ export const Banner = () => {
     <header
       className="
         h-banner bg-custom-black text-white flex items-center justify-center
-        relative overflow-hidden bg-banner bg-center bg-no-repeat bg-cover bg-fixed
-        after:absolute after:content-[''] after:inset-0 after:bg-custom-black after:bg-opacity-5
+        relative overflow-hidden bg-banner bg-center bg-cover
+        after:absolute after:content-[''] after:inset-0 after:bg-custom-black after:bg-opacity-80
       "
     >
       {/* <BlueCircle />
